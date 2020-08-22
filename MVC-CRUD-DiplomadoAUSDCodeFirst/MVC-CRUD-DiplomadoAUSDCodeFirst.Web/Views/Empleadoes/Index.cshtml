@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC_CRUD_DiplomadoUASDCodeFirst.Model.Models.Empleado>
+
+@{
+    ViewBag.Title = "Empleado";
+}
+
+<h2>Empleado</h2>
+
+<p>
+
+    <button class="btn btn-default">   @Html.ActionLink("Nuevo departamento", "Create")</button>
+    <button class="btn btn-default">   @Html.ActionLink("Exportar CSV", "ExportarEmpleadosCSV")</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Ingreso)
+        </td>
+        <td>
+            <button> @Html.ActionLink("Editar", "Edit", new { id = item.EmpleadoID }) </button> |
+            <button> @Html.ActionLink("Detalles", "Details", new { id = item.EmpleadoID }) </button> |
+            <button>  @Html.ActionLink("Eliminar", "Delete", new { id = item.EmpleadoID }) </button>
+
+        </td>
+    </tr>
+}
+
+</table>

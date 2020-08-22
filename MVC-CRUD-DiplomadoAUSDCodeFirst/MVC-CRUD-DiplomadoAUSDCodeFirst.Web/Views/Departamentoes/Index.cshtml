@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVC_CRUD_DiplomadoUASDCodeFirst.Model.Models.Departamento>
+
+@{
+    ViewBag.Title = "Departamento";
+}
+
+<h2>Lista de Departamentos</h2>
+
+<p>
+    <button class="btn btn-default">   @Html.ActionLink("Nuevo departamento", "Create")</button>
+  
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            <button> @Html.ActionLink("Editar", "Edit", new { id=item.DepartamentoID }) </button>||
+            <button> @Html.ActionLink("Detalles", "Details", new { id = item.DepartamentoID }) </button>||
+            <button> @Html.ActionLink("Eliminar", "Delete", new { id = item.DepartamentoID })</button>
+</td>
+    </tr>
+}
+
+</table>

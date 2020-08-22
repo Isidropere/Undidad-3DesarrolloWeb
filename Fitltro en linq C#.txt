@@ -1,0 +1,16 @@
+
+            var empleados_J = from Empleado in ObjEmpleado.Empleados
+                            where Empleado.Nombre.StartsWith("j")
+                            select Empleado;
+
+
+
+
+
+            var empleados_20 = from Empleado in ObjEmpleado.Empleados.Take(20)
+                            orderby Empleado.EmpleadoID ascending
+                            select Empleado;
+
+            var empleados_A = from Empleado in ObjEmpleado.Empleados
+                            where Empleado.Apellidos.Contains("A")
+                            select Empleado;
